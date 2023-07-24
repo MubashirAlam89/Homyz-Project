@@ -1,0 +1,38 @@
+.listItem:hover > .bullet-line {
+  width: 12px;
+}
+.listItem:hover > a {
+  color: #ef4444;
+}
+.showcase-menu:hover > .showcase-list {
+  display: block;
+}
+
+.showcase-dropdown-open {
+  animation: open;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+@keyframes open {
+  0% {
+    /* transform: scaleY(0); */
+    height: 0;
+  }
+  100% {
+    height: 100%;
+    /* transform: scaleY(1); */
+  }
+}
+.showcase-dropdown-close {
+  animation: close;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+}
+@keyframes close {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}

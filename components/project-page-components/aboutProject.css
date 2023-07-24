@@ -1,0 +1,6 @@
+#next-btn:hover > .next-arrow {
+  transform: translateX(5px);
+}
+#prev-btn:hover > .prev-arrow {
+  transform: translateX(-5px);
+}
