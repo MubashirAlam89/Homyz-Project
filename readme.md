@@ -29,7 +29,7 @@ To run the Homyz website on your local machine, follow these steps:
 1. Clone the repository from GitHub:
 
 ```bash
-git clone https://github.com/your-username/homyz.git
+git clone https://github.com/MubashirAlam89/Homyz-Project.git
 ```
 
 2. Change into the project directory:
