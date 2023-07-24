@@ -58,7 +58,7 @@ If you would like to contribute to the Homyz project, feel free to submit issues
 
 ## Live Demo.
 
-for live demo of leverix &#128073; <a href="https://homyz-project.vercel.app">click here.</a>
+for live demo of Homyz &#128073; <a href="https://homyz-project.vercel.app">click here.</a>
 
 <hr>
 
