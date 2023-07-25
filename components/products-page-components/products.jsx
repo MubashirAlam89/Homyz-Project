@@ -103,27 +103,17 @@ const Product = ({
             viewport={{ once: true, amount: 0.2 }}
             className="sticky max-lg:static top-32 flex flex-col gap-4"
           >
-            <h1 className="text-5xl font-semibold">{title}</h1>
+            <h1 className="text-5xl font-semibold">House in {title}</h1>
             <p className="details text-2xl">{descr}</p>
             <div>
               <h2 className="text-xl text-red-500 font-semibold">Price:</h2>
               <h2 className="text-2xl mt-2 font-semibold">
-                PKR {formatCompactNumber(price)}
+                PKR {formatCompactNumber(price)}/Month
               </h2>
             </div>
             <div className="flex flex-col gap-2">
               <h2 className="text-xl text-red-500 font-semibold">Quantity</h2>
-              {/* <Input
-                pl={3}
-                type="number"
-                fontSize={19}
-                value={1}
-                variant={"flushed"}
-                borderColor={"#696969"}
-                focusBorderColor="#a7a7a7"
-                _placeholder={{ color: "#696969" }}
-                placeholder="First Name"
-            /> */}
+
               <NumberInput
                 borderColor={"#696969"}
                 focusBorderColor="#a7a7a7"
@@ -132,18 +122,11 @@ const Product = ({
                 min={1}
                 id="inp"
                 size={"lg"}
-                // onChange={(e) => {
-                //   setQuantity(Number(e));
-                // }}
                 className="mt-4 max-lg:w-72 max-sm:w-full"
                 value={inpt}
                 onChange={(e) => {
                   setInpt(Number(e));
                 }}
-                // value={quantity}
-                // onChange={(e) => {
-                //   setQuantity(Number(e));
-                // }}
               >
                 <NumberInputField fontSize={"xl"} paddingX={"2"} />
                 <NumberInputStepper>
@@ -151,26 +134,6 @@ const Product = ({
                   <NumberDecrementStepper />
                 </NumberInputStepper>
               </NumberInput>
-              {/* <Button
-                content={"Add to Cart"}
-                padding={"py-2"}
-                furtherClasses={"w-full mt-4"}
-                onClick={() => {
-                  let currentInpValue = document.getElementById("inp");
-                  setCart(cart + Number(currentInpValue.value));
-                  let a = shop.findIndex((e) => {
-                    return e.id === id;
-                  });
-                  let arr = shop;
-                  shop[a].quantity =
-                    shop[a].quantity + Number(currentInpValue.value);
-                  shop[a].price = price;
-                  shop[a].name = title;
-                  shop[a].itemImg = mainImage;
-                  setShop([...arr]);
-                  setModal(true);
-                }}
-              /> */}
               <Button
                 // _hover={{ borderColor: "#d5515e" }}
                 _hover={{ backgroundColor: "white", color: "#d5515e" }}

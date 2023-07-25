@@ -251,25 +251,41 @@ const AboutPage = () => {
             <div className="flex flex-col gap-5 mt-7">
               <div className="flex justify-between items-center border-b-2 border-black/30 pb-5 text-2xl">
                 <h2>Investmennt Management</h2>
-                <Link className="text-red-500">
+                <Link
+                  to={"/services"}
+                  onClick={scrollToTop}
+                  className="text-red-500"
+                >
                   <FaArrowRight className="rotate-45" />
                 </Link>
               </div>
               <div className="flex justify-between items-center border-b-2 border-black/30 pb-5 text-2xl">
                 <h2>Investmennt Management</h2>
-                <Link className="text-red-500">
+                <Link
+                  to={"/services"}
+                  onClick={scrollToTop}
+                  className="text-red-500"
+                >
                   <FaArrowRight className="rotate-45" />
                 </Link>
               </div>
               <div className="flex justify-between items-center border-b-2 border-black/30 pb-5 text-2xl">
                 <h2>Investmennt Management</h2>
-                <Link className="text-red-500">
+                <Link
+                  to={"/services"}
+                  onClick={scrollToTop}
+                  className="text-red-500"
+                >
                   <FaArrowRight className="rotate-45" />
                 </Link>
               </div>
               <div className="flex justify-between items-center border-b-2 border-black/30 pb-5 text-2xl">
                 <h2>Investmennt Management</h2>
-                <Link className="text-red-500">
+                <Link
+                  to={"/services"}
+                  onClick={scrollToTop}
+                  className="text-red-500"
+                >
                   <FaArrowRight className="rotate-45" />
                 </Link>
               </div>

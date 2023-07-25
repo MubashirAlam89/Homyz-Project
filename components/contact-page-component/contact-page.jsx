@@ -19,6 +19,8 @@ import { animationVariants } from "../../constants/animationVariants";
 import WhatWeDoCard from "../home-page-components/whatwedocard";
 import { Button, Input, Textarea, useToast } from "@chakra-ui/react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { scrollToTop } from "../../constants/scrollToTop";
 
 const ContactPage = () => {
   const toast = useToast();
@@ -62,17 +64,14 @@ const ContactPage = () => {
   };
 
   const handleSubmit = (e) => {
-    // Form validation
     const errors = validateForm(formData);
 
     if (errors === false) {
-      // Submit the form
       setBtnLoader(true);
       axios
         .post("https://homyz-server.vercel.app/contact", formData)
         .then((response) => {
           showToast();
-          // Clear the form after successful submission
           setFormData({
             firstName: "",
             lastName: "",
@@ -91,7 +90,6 @@ const ContactPage = () => {
   };
 
   const isValidEmail = (email) => {
-    // Email validation regex pattern
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   };
@@ -458,12 +456,14 @@ const ContactPage = () => {
               urna in elit amet blandit enim lacinia. Tellus leo felis et vel
               eget maecenas.
             </p>
-            <button
-              style={{ borderWidth: 1.5, borderRadius: 4 }}
-              className="bg-transparent  text-black border-red-500 text-xl px-5 py-2 duration-300 hover:bg-red-500 hover:text-white transition-all mt-5 max-md:mt-3"
-            >
-              About Us
-            </button>
+            <Link to="/about" onClick={scrollToTop}>
+              <button
+                style={{ borderWidth: 1.5, borderRadius: 4 }}
+                className="bg-transparent  text-black border-red-500 text-xl px-5 py-2 duration-300 hover:bg-red-500 hover:text-white transition-all mt-5 max-md:mt-3"
+              >
+                About Us
+              </button>
+            </Link>
           </motion.div>
 
           {/* <div className="cards w-2/3 max-lg:w-full flex justify-center max-md:flex-col max-md:items-center gap-7"> */}

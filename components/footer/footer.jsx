@@ -47,17 +47,14 @@ const Footer = () => {
   };
 
   const handleSubmit = (e) => {
-    // Form validation
     const errors = validateForm(formData);
 
     if (errors === false) {
-      // Submit the form
       setBtnLoader(true);
       axios
         .post("https://homyz-server.vercel.app/contact", formData)
         .then((response) => {
           showToast();
-          // Clear the form after successful submission
           setFormData({
             firstName: "",
             lastName: "",
@@ -76,7 +73,6 @@ const Footer = () => {
   };
 
   const isValidEmail = (email) => {
-    // Email validation regex pattern
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
   };

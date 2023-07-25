@@ -41,7 +41,7 @@ const HomePage = () => {
   };
   return (
     <div className=" w-full overflow-hidden">
-      <div className="  flex bg-[url('/hero-bg-images.jpg')] pt-36 pb-20 bg-top bg-no-repeat bg-cover  ">
+      <div className="  flex bg-[url('/hero-bg-image.jpg')] pt-36 pb-20 bg-top bg-no-repeat bg-cover  ">
         <motion.div
           initial="initial"
           whileInView="animate"
@@ -70,13 +70,18 @@ const HomePage = () => {
           >
             <FaPeriscope className="text-red-500 text-2xl absolute left-2 top-5 " />
             <input
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
               autoComplete="off"
               id="searchInp"
               className="w-full py-5 pl-10 pr-32 text-black rounded-md focus:outline-none"
               type="text"
             />
             <Button
-              content={"Serch"}
+              content={"Search"}
               fontSize={"text-xl"}
               padding={"px-5  py-2"}
               furtherClasses={"absolute right-2"}

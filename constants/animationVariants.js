@@ -1,13 +1,4 @@
 export const animationVariants = {
-  // toLeft: {
-  //   initial: { scaleX: 0, transformOrigin: "right" },
-  //   animate: {
-  //     scaleX: 1,
-  //     transformOrigin: "right",
-  //     transition: { duration: 0.6 },
-  //   },
-  // },
-
   toLeft: {
     initial: { scaleX: 1 },
     animate: {

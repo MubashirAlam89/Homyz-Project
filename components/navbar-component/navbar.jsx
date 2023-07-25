@@ -4,7 +4,6 @@ import Button from "../buttons-component/solidbutton";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/cartContext";
-
 import {
   NumberInput,
   NumberInputField,
@@ -17,14 +16,13 @@ import { scrollToTop } from "../../constants/scrollToTop";
 const NavBar = ({ navBar2, showCase1Page }) => {
   const [cartt, setCartt] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
-  const [total, setTotal] = useState(0);
-  const { cart, shop, setShop, modal, setModal } = useContext(CartContext);
+  const { shop, setShop, modal, setModal } = useContext(CartContext);
   const [whenScroll, setWhenScroll] = useState("bg-transparent");
   const [logo, setlogo] = useState("/Homyz-logo.png");
   const [textColor, setTextColor] = useState("text-white");
   const [showcaseDropDown, setShowcaseDropDown] = useState(false);
-  // const [modal, setModal] = useState(false);
   const [viewSideNav, setViewSideNav] = useState(false);
+  const [checkOut, setCheckOut] = useState(false);
   const hideNav = () => {
     setViewSideNav(false);
   };
@@ -54,6 +52,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
     });
     let totalPrice = total.reduce((acc, product) => acc + product, 0);
     setSubTotal(totalPrice);
+    setCheckOut(false);
   }, [shop]);
   useEffect(() => {
     const body = document.getElementsByTagName("body").item(0);
@@ -102,10 +101,10 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                   {shop.map((e, i) => {
                     if (e.quantity > 0) {
                       return (
-                        <>
+                        <div key={i}>
                           <div className="flex flex-col gap-4">
                             <div className="flex justify-between">
-                              <div className="flex gap-10">
+                              <div className="flex gap-4">
                                 <Link
                                   onClick={() => {
                                     setModal(false);
@@ -115,7 +114,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                                   className="flex gap-4"
                                 >
                                   <img
-                                    className="w-20 h-full object-cover"
+                                    className="min-w-[65px] w-20 h-full max-sm:h-[85px] object-cover"
                                     src={e.itemImg}
                                     alt={e.itemImg}
                                   />
@@ -126,7 +125,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                                     to={`/products/${e.id}`}
                                   >
                                     <h2 className="title-font text-xl">
-                                      {e.name}
+                                      House in {e.name}
                                     </h2>
                                   </Link>
                                   <h3>PKR {formatCompactNumber(e.price)}</h3>
@@ -172,7 +171,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                             </div>
                           </div>
                           <hr />
-                        </>
+                        </div>
                       );
                     }
                   })}
@@ -184,7 +183,20 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                       PKR {formatCompactNumber(subTotal)}
                     </p>
                   </div>
-                  <Button content={"Continue to Checkout"} padding={"py-2"} />
+                  <Button
+                    onClick={() => {
+                      setCheckOut(true);
+                    }}
+                    content={"Continue to Checkout"}
+                    padding={"py-2"}
+                  />
+                  {checkOut ? (
+                    <p className="text-red-500">
+                      Checkout is disabled on this site.
+                    </p>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             ) : (
@@ -210,7 +222,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
       >
         <nav
           style={{ maxWidth: 1200 }}
-          className="flex justify-between mx-auto items-center gap-4 py-7 max-md:py-5 px-10 max-sm:px-5"
+          className="flex justify-between mx-auto items-center gap-4 py-7 max-md:py-5 px-10 max-sm:px-5 font-medium"
         >
           <Link onClick={scrollToTop} to="/">
             <img
@@ -292,9 +304,9 @@ const NavBar = ({ navBar2, showCase1Page }) => {
               }}
             >
               {cartt > 0 ? (
-                <p className="absolute bg-red-500 pt-[0.5px] text-white rounded-full h-4  w-5 -right-3 text-xs font-medium text-center -top-2">
-                  {cartt}
-                </p>
+                <div className="absolute bg-red-500 pt-[0.5px] text-white rounded-full h-[18px]  w-[18px] -right-[10px] text-xs font-medium text-center -top-[10px] flex justify-center items-center">
+                  <p>{cartt}</p>
+                </div>
               ) : (
                 ""
               )}
@@ -322,9 +334,9 @@ const NavBar = ({ navBar2, showCase1Page }) => {
               }}
             >
               {cartt > 0 ? (
-                <p className="absolute bg-red-500 pt-[0.5px] text-white rounded-full h-[16px]  w-5 -right-3 text-xs font-medium text-center -top-2">
-                  {cartt}
-                </p>
+                <div className="absolute bg-red-500 pt-[0.5px] text-white rounded-full h-[18px]  w-[18px] -right-[10px] text-xs font-medium text-center -top-[10px] flex justify-center items-center">
+                  <p>{cartt}</p>
+                </div>
               ) : (
                 ""
               )}
@@ -356,7 +368,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
         // style={{ height: 8000 }}
         className={`fixed top-0 bottom-0 hidden max-lg:block ${
           viewSideNav ? "translate-x-0" : "-translate-x-full"
-        } bg-white  left-0 w-96 p-5 px-10 max-sm:px-5 max-sm:w-80 z-30 transition-all`}
+        } bg-white  left-0 w-96 p-5 px-10 max-sm:px-5 max-sm:w-80 z-30 transition-all font-medium`}
       >
         <div id="header" className="flex justify-between items-center">
           <img className="w-36" src="/Homyz-logo2.png" alt="Homyz-logo2" />

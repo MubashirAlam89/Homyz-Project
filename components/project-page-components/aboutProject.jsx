@@ -29,9 +29,15 @@ const AboutProject = ({ heroImageSrc, attachment }) => {
         }}
       >
         <div className="absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center bg-black/50">
-          <h1 className="text-8xl max-lg:text-6xl max-md:text-5xl  font-semibold text-white">
+          <motion.h1
+            initial="initial"
+            whileInView="animate"
+            variants={animationVariants.zoomOut}
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-8xl max-lg:text-6xl max-md:text-5xl  font-semibold text-white"
+          >
             {project.city}
-          </h1>
+          </motion.h1>
         </div>
       </div>
       <div
@@ -47,14 +53,13 @@ const AboutProject = ({ heroImageSrc, attachment }) => {
         >
           <h1 className="text-4xl font-bold">{project.city}</h1>
           <p className="text-xl">{project.shortDescription}</p>
-          <Button
-            content={"Contact Us"}
-            fontSize={"text-2xl max-md:text-xl"}
-            padding={"px-8  py-3 max-md:px-6 max-md:py-2"}
-          />
-          {/* <button className="bg-red-500 border-2 text-white border-red-500 text-2xl rounded-md px-8 py-3 duration-300 hover:bg-white hover:text-red-500 transition-all">
-            Visie Site
-          </button> */}
+          <Link to={"/contact"} onClick={scrollToTop}>
+            <Button
+              content={"Contact Us"}
+              fontSize={"text-2xl max-md:text-xl"}
+              padding={"px-8  py-3 max-md:px-4 max-md:py-2"}
+            />
+          </Link>
         </motion.div>
         <motion.div
           initial="initial"

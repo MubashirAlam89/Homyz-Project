@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import FreeTrial from "../free-trial-component/freeTrial";
 import { motion } from "framer-motion";
 import { animationVariants } from "../../constants/animationVariants";
+import { scrollToTop } from "../../constants/scrollToTop";
 const ServicePage = ({ id, title, breif, descr, imageSrc }) => {
   return (
     <>
@@ -216,7 +217,11 @@ const ServicePage = ({ id, title, breif, descr, imageSrc }) => {
             </div>
             <p>information@office.com</p>
           </div>
-          <Link className="text-red-500 hover:text-black transition-all duration-300">
+          <Link
+            to="/contact"
+            onClick={scrollToTop}
+            className="text-red-500 hover:text-black transition-all duration-300"
+          >
             <div className="flex items-center gap-1">
               <p className="text-xl">Contact us</p>
               <FaArrowRight className="text-sm mt-[2px]" />
