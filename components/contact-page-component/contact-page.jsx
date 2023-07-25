@@ -144,7 +144,7 @@ const ContactPage = () => {
 
   return (
     <div className=" w-full overflow-hidden">
-      <div className="  flex bg-[url('/hero-bg-images.jpg')] pt-44 max-sm:pt-40 pb-32 bg-top bg-no-repeat bg-cover  ">
+      <div className="  flex bg-[url('/hero-bg-image.jpg')] pt-44 max-sm:pt-40 pb-32 bg-top bg-no-repeat bg-cover  ">
         <div
           style={{ maxWidth: 1200 }}
           className="mx-auto w-full text-white px-10 max-sm:px-5 flex flex-col max-lg:items-center max-lg:text-center gap-16"

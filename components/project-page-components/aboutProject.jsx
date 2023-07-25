@@ -51,13 +51,13 @@ const AboutProject = ({ heroImageSrc, attachment }) => {
           viewport={{ once: true, amount: 0.2 }}
           className="flex flex-col items-start gap-5"
         >
-          <h1 className="text-4xl font-bold">{project.city}</h1>
+          <h1 className="text-5xl font-bold">{project.city}</h1>
           <p className="text-xl">{project.shortDescription}</p>
           <Link to={"/contact"} onClick={scrollToTop}>
             <Button
               content={"Contact Us"}
-              fontSize={"text-2xl max-md:text-xl"}
-              padding={"px-8  py-3 max-md:px-4 max-md:py-2"}
+              fontSize={"text-xl max-md:text-xl"}
+              padding={"px-4 py-2"}
             />
           </Link>
         </motion.div>
