@@ -5,7 +5,11 @@ const Services = () => {
   useEffect(() => {
     document.title = "Servics - Homyz";
   }, []);
-  return <ServicesComponent />;
+  return (
+    <div className="overflow-hidden">
+      <ServicesComponent />
+    </div>
+  );
 };
 
 export default Services;

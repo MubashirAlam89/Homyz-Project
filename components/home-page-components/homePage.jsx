@@ -70,6 +70,7 @@ const HomePage = () => {
           >
             <FaPeriscope className="text-red-500 text-2xl absolute left-2 top-5 " />
             <input
+              placeholder="Search..."
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   handleSearch();

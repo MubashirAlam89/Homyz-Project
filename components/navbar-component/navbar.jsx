@@ -14,9 +14,11 @@ import {
 import { formatCompactNumber } from "../../constants/formatNumber";
 import { scrollToTop } from "../../constants/scrollToTop";
 const NavBar = ({ navBar2, showCase1Page }) => {
-  const [cartt, setCartt] = useState(0);
+  const [totalQty, setTotalQty] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
-  const { shop, setShop, modal, setModal } = useContext(CartContext);
+  const [check, setCheck] = useState(false);
+  const { cartItems, setCartItems, addToCart, modal, setModal } =
+    useContext(CartContext);
   const [whenScroll, setWhenScroll] = useState("bg-transparent");
   const [logo, setlogo] = useState("/Homyz-logo.png");
   const [textColor, setTextColor] = useState("text-white");
@@ -41,19 +43,20 @@ const NavBar = ({ navBar2, showCase1Page }) => {
     };
     window.addEventListener("scroll", changeColor);
   }, []);
+
   useEffect(() => {
-    let totalQuantity = shop.reduce(
+    let totalQuantity = cartItems.reduce(
       (acc, product) => acc + product.quantity,
       0
     );
-    setCartt(totalQuantity);
-    let total = shop.map((e, i) => {
+    setTotalQty(totalQuantity);
+    let total = cartItems.map((e, i) => {
       return e.quantity * e.price;
     });
     let totalPrice = total.reduce((acc, product) => acc + product, 0);
     setSubTotal(totalPrice);
     setCheckOut(false);
-  }, [shop]);
+  }, [cartItems]);
   useEffect(() => {
     const body = document.getElementsByTagName("body").item(0);
     if (modal) {
@@ -67,9 +70,9 @@ const NavBar = ({ navBar2, showCase1Page }) => {
       {modal ? (
         <div
           style={{ zIndex: 101 }}
-          className="modal py-10 max-sm:p-0 fixed top-0 overflow-y-auto  flex flex-col  items-center left-0 bottom-0 right-0 bg-black/70"
+          className="modal   fixed top-0 overflow-y-auto  flex flex-col  items-center left-0 bottom-0 right-0 bg-black/70 max-sm:bg-white"
         >
-          <div className="w-[500px]  max-sm:w-full  my-20  bg-white">
+          <div className="w-[500px]  max-sm:w-full    max-sm:my-0  bg-white">
             <div
               style={{ borderBottomWidth: 1 }}
               className="modal-header text-2xl font-semibold px-6 py-4 border-gray-400/90 flex justify-between items-center"
@@ -95,10 +98,14 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                 </div>
               </div>
             </div>
-            {cartt > 0 ? (
+            {totalQty > 0 ? (
               <div>
-                <div className="p-6 flex flex-col gap-5">
-                  {shop.map((e, i) => {
+                <div
+                  className={`p-6 ${
+                    checkOut ? "max-sm:pb-48" : "max-sm:pb-36"
+                  } flex flex-col gap-5`}
+                >
+                  {cartItems.map((e, i) => {
                     if (e.quantity > 0) {
                       return (
                         <div key={i}>
@@ -115,27 +122,32 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                                 >
                                   <img
                                     className="min-w-[65px] w-20 h-full max-sm:h-[85px] object-cover"
-                                    src={e.itemImg}
-                                    alt={e.itemImg}
+                                    src={e.image}
+                                    alt={e.image}
                                   />
                                 </Link>
                                 <div>
                                   <Link
-                                    onClick={scrollToTop}
+                                    onClick={() => {
+                                      setModal(false);
+                                      scrollToTop();
+                                    }}
                                     to={`/products/${e.id}`}
                                   >
                                     <h2 className="title-font text-xl">
                                       House in {e.name}
                                     </h2>
                                   </Link>
-                                  <h3>PKR {formatCompactNumber(e.price)}</h3>
+                                  <h3>
+                                    PKR {formatCompactNumber(e.price)}/Month
+                                  </h3>
                                   <p
                                     onClick={(event) => {
-                                      let arr = shop;
-                                      shop[i].quantity = 0;
-                                      setShop([...arr]);
+                                      let arr = cartItems;
+                                      arr.splice(i, 1);
+                                      setCartItems([...arr]);
                                     }}
-                                    className="text-lg hover:text-black transition-all duration-300 cursor-pointer text-red-500 hover mt-3"
+                                    className="text-lg w-fit hover:text-black transition-all duration-300 cursor-pointer text-red-500 hover mt-3"
                                   >
                                     remove
                                   </p>
@@ -149,13 +161,13 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                                   size={"md"}
                                   onChange={(event) => {
                                     if (Number(event) > 0) {
-                                      let arr = shop;
-                                      shop[i].quantity = Number(event);
-                                      setShop([...arr]);
+                                      let arr = cartItems;
+                                      arr[i].quantity = Number(event);
+                                      setCartItems([...arr]);
                                     }
                                   }}
                                 >
-                                  <NumberInputField />
+                                  <NumberInputField readOnly={true} />
                                   <NumberInputStepper>
                                     <NumberIncrementStepper />
                                     <NumberDecrementStepper />
@@ -176,7 +188,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                     }
                   })}
                 </div>
-                <div className="p-6 pt-0 flex flex-col gap-5">
+                <div className="p-6 pt-0 bg-white max-sm:pt-6 flex max-sm:fixed bottom-0 left-0 right-0 flex-col gap-5">
                   <div className="flex justify-between items-center">
                     <h2>Subtotal</h2>
                     <p className="total text-red-500">
@@ -298,15 +310,20 @@ const NavBar = ({ navBar2, showCase1Page }) => {
               About
             </Link>
             <div
-              className="relative cursor-pointer hover:text-red-500 transition-all"
+              className="relative cursor-pointer  transition-all"
               onClick={() => {
                 setModal(true);
               }}
             >
-              {cartt > 0 ? (
-                <div className="absolute bg-red-500 pt-[0.5px] text-white rounded-full h-[18px]  w-[18px] -right-[10px] text-xs font-medium text-center -top-[10px] flex justify-center items-center">
-                  <p>{cartt}</p>
-                </div>
+              {totalQty > 0 ? (
+                // <div className="absolute bg-red-500 pt-[0.5px] text-white rounded-full h-[18px]   min-w-[18px] -right-[10px] text-xs font-medium text-center -top-[10px] flex justify-center items-center">
+                <p
+                  className={`absolute bg-red-500 pt-[1.5px] text-white rounded-full h-[18px] px-1   min-w-[18px] ${
+                    totalQty >= 100 ? "-right-[15px]" : "-right-[10px]"
+                  }  text-xs font-medium text-center -top-[10px]`}
+                >
+                  {totalQty}
+                </p>
               ) : (
                 ""
               )}
@@ -333,10 +350,14 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                 setModal(true);
               }}
             >
-              {cartt > 0 ? (
-                <div className="absolute bg-red-500 pt-[0.5px] text-white rounded-full h-[18px]  w-[18px] -right-[10px] text-xs font-medium text-center -top-[10px] flex justify-center items-center">
-                  <p>{cartt}</p>
-                </div>
+              {totalQty > 0 ? (
+                <p
+                  className={`absolute bg-red-500 pt-[1.5px] text-white rounded-full h-[18px] px-1   min-w-[18px] ${
+                    totalQty >= 100 ? "-right-[15px]" : "-right-[10px]"
+                  }  text-xs font-medium text-center -top-[10px]`}
+                >
+                  {totalQty}
+                </p>
               ) : (
                 ""
               )}

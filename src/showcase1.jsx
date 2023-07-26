@@ -6,7 +6,7 @@ const showcase1 = () => {
     document.title = "Showcase 1 - Homyz";
   }, []);
   return (
-    <>
+    <div className="overflow-hidden">
       {showCase.map((e, i) => {
         return (
           <Section
@@ -19,7 +19,7 @@ const showcase1 = () => {
           />
         );
       })}
-    </>
+    </div>
   );
 };
 

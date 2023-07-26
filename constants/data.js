@@ -11,7 +11,7 @@ export const rentHouses = [
     ],
     name: "Lahore",
     address: "DHA 9 City, Lahore, Pakistan",
-    price: 43000000,
+    price: 130000,
     details: [
       "4 Bedrooms",
       "3 attached Bathrooms",
@@ -37,7 +37,7 @@ export const rentHouses = [
     ],
     name: "Karachi",
     address: "Bahria Town, Karachi, Pakistan",
-    price: 10000000,
+    price: 100000,
     details: [
       "4 Bedrooms",
       "1 big launge",
@@ -63,7 +63,7 @@ export const rentHouses = [
     ],
     name: "Karachi",
     address: "Gulistan-e-Johar, Karachi, Pakistan",
-    price: 10500000,
+    price: 50000,
     details: [
       "Gulistan-e-Johar Block 7",
       "MAHAM PLAZA",
@@ -75,7 +75,7 @@ export const rentHouses = [
       "Area: 950 sqr.feet",
     ],
     description:
-      "Apartment in installment (View phone number) Sqfeet VIP location near to park Gand masjid Gulistan-e-Johar karachi. You can find a Flat on the lower or upper levels, as suiting to your requirement. Buying property is a one-time life decision and we can help you with it. 950 Square Feet sized residential or commercial property is best for investment purposes. All your queries concerned with this property are welcome, so please contact us.",
+      "Apartment in installment (View phone number) Sqfeet VIP location near to park and masjid Gulistan-e-Johar karachi. You can find a Flat on the lower or upper levels, as suiting to your requirement. Buying property is a one-time life decision and we can help you with it. 950 Square Feet sized residential or commercial property is best for investment purposes. All your queries concerned with this property are welcome, so please contact us.",
   },
   {
     id: 4,
@@ -89,7 +89,7 @@ export const rentHouses = [
     ],
     name: "Islamabad",
     address: "Blue Area, F-3, Islamabad, Pakistan",
-    price: 13500000,
+    price: 135000,
     details: [
       "Location: Isra Tower",
       "2 Bedrooms",
@@ -115,7 +115,7 @@ export const rentHouses = [
     ],
     name: "Faisalabad",
     address: "Saadi Town, Faisalabad, Pakistan",
-    price: 19500000,
+    price: 95000,
     details: [
       "Bunglow at saadi town scheme",
       "4 Bedrooms",
@@ -141,7 +141,7 @@ export const rentHouses = [
     ],
     name: "Karachi",
     address: "Bahria Town, Karachi, Pakistan",
-    price: 20500000,
+    price: 120000,
     details: [
       "Bahria Villas, Bahria Town, Karachi",
       "5 Bedrooms",

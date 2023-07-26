@@ -38,3 +38,9 @@ body::-webkit-scrollbar-thumb {
 .title-font {
   font-family: "Space Grotesk", sans-serif;
 }
+
+@media only screen and (max-width: 639px) {
+  .modal::-webkit-scrollbar {
+    display: none;
+  }
+}

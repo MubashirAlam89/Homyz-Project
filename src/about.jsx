@@ -5,7 +5,11 @@ const About = () => {
   useEffect(() => {
     document.title = "About Us - Homyz";
   }, []);
-  return <AboutPage />;
+  return (
+    <div className="overflow-hidden">
+      <AboutPage />
+    </div>
+  );
 };
 
 export default About;

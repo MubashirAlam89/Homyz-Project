@@ -30,7 +30,7 @@ const ResultPage = ({ searchParams, setSearchParams }) => {
         `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${inpValue}`
       )
       .then((res) => {
-        // console.log(res.data.query.search);
+        console.log(res.data.query.search);
         setData(res.data.query.search);
         console.log(res);
         setBtnLoader(false);
@@ -113,7 +113,7 @@ const ResultPage = ({ searchParams, setSearchParams }) => {
               variants={animationVariants.fadeUp}
               viewport={{ once: true, amount: 0.2 }}
             >
-              <ResultCard title={e.title} desc={e.snippet} />
+              <ResultCard title={e.title} ind={i} desc={e.snippet} />
             </motion.div>
           );
         })

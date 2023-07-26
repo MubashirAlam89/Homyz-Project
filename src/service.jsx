@@ -21,7 +21,7 @@ const Service = () => {
     document.title = `Services - ${serviceData.title} `;
   }, []);
   return (
-    <>
+    <div className="overflow-hidden">
       <ServicePage
         id={serviceData.id}
         title={serviceData.title}
@@ -29,7 +29,7 @@ const Service = () => {
         descr={serviceData.mainDescription}
         imageSrc={serviceData.image}
       />
-    </>
+    </div>
   );
 };
 

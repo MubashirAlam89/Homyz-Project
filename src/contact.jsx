@@ -5,7 +5,11 @@ const Contact = () => {
   useEffect(() => {
     document.title = "Contact Us - Homyz";
   }, []);
-  return <ContactPage />;
+  return (
+    <div className="overflow-hidden">
+      <ContactPage />
+    </div>
+  );
 };
 
 export default Contact;

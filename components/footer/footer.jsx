@@ -145,9 +145,15 @@ const Footer = () => {
               distinctio soluta. Aut, sequi quia.
             </p>
             <div className="flex text-xl justify-start items-center gap-10 text-red-500">
-              <FaFacebookF />
-              <FaInstagram />
-              <FaTwitter />
+              <Link target="_blank" to={"https://facebook.com"}>
+                <FaFacebookF />
+              </Link>
+              <Link target="_blank" to={"https://instagram.com"}>
+                <FaInstagram />
+              </Link>
+              <Link target="_blank" to={"https://twitter.com"}>
+                <FaTwitter />
+              </Link>
             </div>
             <ul className="text-white text-lg flex justify-start items-center flex-wrap gap-x-8 gap-y-4">
               <Link
@@ -180,10 +186,7 @@ const Footer = () => {
               </Link>
             </ul>
           </div>
-          <p style={{ color: "#696969" }}>
-            © Homyz. All Rights Reserved 2023. Licensing Templateby wCopilot
-            Powered by Webflow
-          </p>
+          <p style={{ color: "#696969" }}>© Homyz. All Rights Reserved 2023.</p>
         </div>
 
         <div
@@ -286,14 +289,6 @@ const Footer = () => {
           >
             Submit
           </Button>
-          {/* <Button
-            content={"Get in Touch"}
-            fontSize={"text-xl"}
-            fontWeight={""}
-            padding={"px-5  py-2"}
-            type={"submit"}
-            loader={btnLoader}
-          /> */}
         </div>
       </footer>
     </div>

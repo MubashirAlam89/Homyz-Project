@@ -25,34 +25,35 @@ const Product = ({
   details,
   price,
 }) => {
-  const [quantity, setQuantity] = useState(0);
   const [btnLoader, setBtnLoader] = useState(false);
 
   const [inpt, setInpt] = useState(1);
-  const { setCart, cart, shop, setShop, modal, setModal } =
-    useContext(CartContext);
+  const { cartItems, addToCart, modal, setModal } = useContext(CartContext);
 
   const [otherItems, setOtherItems] = useState([]);
 
-  const addToCart = () => {
+  const handleAddToCart = () => {
     setBtnLoader(true);
     setTimeout(() => {
       setBtnLoader(false);
-
       let currentInpValue = document.getElementById("inp");
-      setCart(cart + Number(currentInpValue.value));
-      let a = shop.findIndex((e) => {
-        return e.id === id;
-      });
-      let arr = shop;
-      shop[a].quantity = shop[a].quantity + Number(currentInpValue.value);
-      shop[a].price = price;
-      shop[a].name = title;
-      shop[a].itemImg = mainImage;
-      setShop([...arr]);
+
+      const newItem = {
+        id: id,
+        name: title,
+        image: mainImage,
+        quantity: Number(currentInpValue.value),
+        price: price,
+      };
+      addToCart(newItem);
+      setInpt(1);
       setModal(true);
     }, 400);
   };
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   useEffect(() => {
     setOtherItems(
@@ -80,6 +81,7 @@ const Product = ({
           {moreImages.map((e, i) => {
             return (
               <motion.div
+                key={i}
                 initial="initial"
                 whileInView="animate"
                 variants={animationVariants.zoomIn}
@@ -88,7 +90,6 @@ const Product = ({
                 <img
                   className="w-full h-[500px] max-md:h-[400px] max-sm:h-[300px] object-cover"
                   src={e}
-                  key={i}
                   alt={e}
                 />
               </motion.div>
@@ -144,7 +145,7 @@ const Product = ({
                 size={"lg"}
                 isLoading={btnLoader}
                 loadingText={"Adding to Cart"}
-                onClick={addToCart}
+                onClick={handleAddToCart}
                 className="mt-4 max-lg:w-72 max-sm:w-full"
               >
                 Add to Cart

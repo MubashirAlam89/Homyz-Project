@@ -8,7 +8,7 @@ const ShowCase2 = () => {
     document.title = "Showcase 2 - Homyz";
   }, []);
   return (
-    <>
+    <div className="overflow-hidden">
       <ShowCase2HeroSection />
       <div
         style={{ maxWidth: 1200 }}
@@ -24,7 +24,7 @@ const ShowCase2 = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
