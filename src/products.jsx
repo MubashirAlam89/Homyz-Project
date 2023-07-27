@@ -9,17 +9,15 @@ const Products = () => {
     document.title = `House in ${product.name} - Homyz `;
   }, [params]);
   return (
-    <div className="overflow-hidden">
-      <Product
-        id={product.id}
-        title={product.name}
-        descr={product.description}
-        moreImages={product.moreImages}
-        mainImage={product.mainImage}
-        price={product.price}
-        details={product.details}
-      />
-    </div>
+    <Product
+      id={product.id}
+      title={product.name}
+      descr={product.description}
+      moreImages={product.moreImages}
+      mainImage={product.mainImage}
+      price={product.price}
+      details={product.details}
+    />
   );
 };
 

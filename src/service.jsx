@@ -21,15 +21,13 @@ const Service = () => {
     document.title = `Services - ${serviceData.title} `;
   }, []);
   return (
-    <div className="overflow-hidden">
-      <ServicePage
-        id={serviceData.id}
-        title={serviceData.title}
-        breif={serviceData.shortDescription}
-        descr={serviceData.mainDescription}
-        imageSrc={serviceData.image}
-      />
-    </div>
+    <ServicePage
+      id={serviceData.id}
+      title={serviceData.title}
+      breif={serviceData.shortDescription}
+      descr={serviceData.mainDescription}
+      imageSrc={serviceData.image}
+    />
   );
 };
 
