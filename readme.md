@@ -62,4 +62,4 @@ for live demo of Homyz &#128073; <a href="https://homyz-project.vercel.app">clic
 
 <hr>
 
-made with &#128151; by <a href="https://wwww.mubashiralam.com">"Mubashir Alam"</a>.
+made with &#128151; by <a href="https://www.mubashiralam.com">"Mubashir Alam"</a>.
