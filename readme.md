@@ -62,4 +62,8 @@ for live demo of Homyz &#128073; <a href="https://homyz-project.vercel.app">clic
 
 <hr>
 
-made with &#128151; by <a href="https://www.mubashiralam.com">"Mubashir Alam"</a>.
+## Author
+
+Built by [Mubashir Alam](https://www.mubashiralam.com)
+
+Full Stack Developer | AI Automation | Web3 & Blockchain
