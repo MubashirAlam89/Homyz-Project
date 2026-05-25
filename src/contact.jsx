@@ -3,7 +3,7 @@ import ContactPage from "../components/contact-page-component/contact-page";
 
 const Contact = () => {
   useEffect(() => {
-    document.title = "Contact Us - Homyz";
+    document.title = "Contact Us - GIS Limited";
   }, []);
   return (
     <div className="overflow-hidden">

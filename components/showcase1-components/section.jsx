@@ -4,6 +4,7 @@ import Button from "../buttons-component/solidbutton";
 import { scrollToTop } from "../../constants/scrollToTop";
 import { animationVariants } from "../../constants/animationVariants";
 import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
 const Section = ({ url, title, desc, href, attachment }) => {
   return (
     <div
@@ -30,6 +31,19 @@ const Section = ({ url, title, desc, href, attachment }) => {
           />
         </Link>
       </motion.div>
+      <div className="fixed bottom-0 right-0 m-4">
+        <Link
+          to="https://wa.me/+2547"
+          target="_blank"
+          class="whatsapp-popup"
+          className="flex items-center"
+        >
+          <FaWhatsapp
+            size={50}
+            className="text-4xl text-green-500 animate-pulse"
+          />
+        </Link>
+      </div>
     </div>
   );
 };

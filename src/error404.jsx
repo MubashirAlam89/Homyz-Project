@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const Error404 = () => {
   useEffect(() => {
-    document.title = "Not Found - Homyz";
+    document.title = "Not Found - GIS LIMITED";
   }, []);
   return (
     <>

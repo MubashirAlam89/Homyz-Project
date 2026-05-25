@@ -10,6 +10,7 @@ import Carousel from "../home-page-components/carousel";
 import PartnerBrandCard from "../home-page-components/partnerBrandCard";
 import { partnerBrands } from "../../constants/partnerBrands";
 import "./about.css";
+import { FaWhatsapp } from "react-icons/fa";
 
 const AboutPage = () => {
   return (
@@ -26,18 +27,23 @@ const AboutPage = () => {
           <div className="text-white flex flex-col gap-8 max-md:items-center max-md:text-center">
             <h1 className="text-5xl font-bold">Who We Are</h1>
             <p className="text-xl max-w-md">
-              Our mission is to engage in issues that are of concern to
-              individuals
+              A Kenyan owned Development Consultancy firm established on
+              Wednesday 11th April, 2014 and registered under the Companies Act,
+              cap 486 of the Laws of Kenya under Registration Number
+              CPR/2014/139005.The firm has qualified experience in the
+              preparation of County Spatial Plans, Integrated Urban Development
+              Plans, Digital topographical Mapping and development of Customized
+              Web-based GIS Solutions.
             </p>
           </div>
           <div className="flex gap-12 max-sm:text-center text-white">
             <div className="flex max-md:items-center flex-col gap-4">
-              <h2 className="text-4xl title-font font-bold">19K+</h2>
-              <p className="text-lg">Premium houses</p>
+              <h2 className="text-4xl title-font font-bold">20+</h2>
+              <p className="text-lg">Completed Projects</p>
             </div>
             <div className="flex max-md:items-center flex-col gap-4">
-              <h2 className="text-4xl  title-font font-bold">5000+</h2>
-              <p className="text-lg">Premium houses</p>
+              <h2 className="text-4xl  title-font font-bold">10+</h2>
+              <p className="text-lg">Clients</p>
             </div>
           </div>
         </motion.div>
@@ -78,29 +84,34 @@ const AboutPage = () => {
           <div className="what-we-do-cards mt-14 gap-8 max-md:grid-cols-1 max-md:grid-rows-3 grid grid-cols-3 grid-rows-1">
             <div>
               <h2 className="text-2xl text-red-500 font-semibold">
-                Get an instant free valuation
+                • Urban Planning and Development
               </h2>
               <p className="text-xl mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
+                The strategic process of designing and shaping cities and towns
+                to enhance their physical, social, and economic environments,
+                focusing on sustainable growth and community well-being
               </p>
             </div>
             <div>
               <h2 className="text-2xl text-red-500 font-semibold">
-                Get your property ready
+                • Institutional Development and Governance
               </h2>
               <p className="text-xl mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
+                The enhancement and strengthening of institutional frameworks
+                and governance structures to improve efficiency, accountability,
+                and transparency, facilitating better decision-making and
+                service delivery in public and private sectors
               </p>
             </div>
             <div>
               <h2 className="text-2xl text-red-500 font-semibold">
-                Offer acceptance
+                • Project Management
               </h2>
               <p className="text-xl mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
+                The discipline of planning, organizing, motivating, and
+                controlling resources to achieve specific goals within a defined
+                timeline and budget, applicable across various fields including
+                construction, IT, and product development.
               </p>
             </div>
           </div>
@@ -122,9 +133,10 @@ const AboutPage = () => {
               What we offer
             </h1>
             <p className="text-xl mt-5">
-              We are real estate agency that has been established since 1995
-              with many advantages over our competitors. We have more than 10000
-              happy customers and have worked with more than 200 distributors
+              We solve our clients’ challenges by providing on-time and
+              on-budget GIS services and technical support. Our goal is to
+              ensure that every client is completely satisfied with the products
+              and services that we provide.
             </p>
           </motion.div>
 
@@ -138,16 +150,16 @@ const AboutPage = () => {
             <h2 className="text-2xl">Our Projects</h2>
             <div className="relative w-fit max-md:mx-auto -mt-7 max-md:-mt-5">
               <h1 className="text-[150px] max-sm:text-[120px] font-semibold relative text-red-500">
-                200+
+                20+
               </h1>
-              <div
+              {/* <div
                 className="absolute z-50 top-0 right-0 left-0 bottom-0 bg-no-repeat "
                 style={{
                   backgroundImage: "url(/200+.png)",
                   backgroundPosition: "40% 100%",
                   backgroundSize: "95%",
                 }}
-              ></div>
+              ></div> */}
             </div>
           </motion.div>
         </div>
@@ -170,9 +182,9 @@ const AboutPage = () => {
             </div>
 
             <div className=" w-1/2 text-5xl max-lg:text-4xl max-md:w-full ">
-              <h1 className="font-semibold ">We focus on all</h1>
+              <h1 className="font-semibold ">We focus on </h1>
               <h1 className="font-semibold  text-red-500">
-                Real Estate Class Saaets
+                Providing solutions.
               </h1>
             </div>
           </motion.div>
@@ -184,13 +196,13 @@ const AboutPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               className="border-t-2 text-xl border-black/20 pt-4"
             >
-              <h2 className="title-font font-semibold">-01</h2>
+              <h2 className="title-font font-semibold"></h2>
               <h2 className="title-font mt-7  font-medium text-red-500">
-                Residential
+                Our Mission
               </h2>
               <p className="mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
+                To provide dependable professional Planning, GIS and Development
+                Consultancy services.
               </p>
             </motion.div>
             <motion.div
@@ -200,13 +212,13 @@ const AboutPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               className="border-t-2 text-xl border-black/20 pt-4"
             >
-              <h2 className="title-font font-semibold">-01</h2>
+              <h2 className="title-font font-semibold"></h2>
               <h2 className="title-font mt-7  font-medium text-red-500">
-                Residential
+                Our Vision
               </h2>
               <p className="mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
+                To be a globally reliable professional Planning, GIS and
+                Development Consultancy Company
               </p>
             </motion.div>
             <motion.div
@@ -216,20 +228,21 @@ const AboutPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               className="border-t-2 text-xl border-black/20 pt-4"
             >
-              <h2 className="title-font font-semibold">-01</h2>
+              <h2 className="title-font font-semibold"></h2>
               <h2 className="title-font mt-7  font-medium text-red-500">
-                Residential
+                Our Goal
               </h2>
               <p className="mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
+                to ensure that every client is completely satisfied with the
+                products and services that we provide.
               </p>
             </motion.div>
+            
           </div>
         </div>
       </div>
       {/* we focus section start */}
-      <div
+      {/* <div
         className="bg-[50%] max-lg:bg-[55%] max-md:bg-[90%] bg-no-repeat bg-fixed"
         style={{ backgroundImage: "url('/faq-bannar.jpg')" }}
       >
@@ -292,10 +305,10 @@ const AboutPage = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
 
       {/* appreciation section start */}
-      <div className="bg-white">
+      {/* <div className="bg-white">
         <div
           style={{ maxWidth: 1200 }}
           className="p-10 max-md:px-5 py-28 mx-auto grid grid-cols-2 grid-rows-1 gap-20 max-lg:grid-cols-1 max-lg:grid-rows-2 "
@@ -387,10 +400,10 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* appreciation section end */}
       {/* review section start */}
-      <div className="bg-gray-100">
+      {/* <div className="bg-gray-100">
         <div
           style={{ maxWidth: 1200 }}
           className=" mx-auto flex max-md:flex-col justify-center items-center gap-16 p-10 max-md:px-5 py-28 "
@@ -451,7 +464,7 @@ const AboutPage = () => {
       </div>
       {/* review section end */}
       {/* partner brand section start */}
-      <div className="bg-gray-100 border-t-2 border-black/30  border-dashed">
+      {/* <div className="bg-gray-100 border-t-2 border-black/30  border-dashed">
         <div
           style={{ maxWidth: 1200 }}
           className=" mx-auto flex max-md:flex-col justify-center items-center gap-10 p-10 max-md:px-5  "
@@ -475,7 +488,7 @@ const AboutPage = () => {
             })}
           </motion.div>
         </div>
-      </div>
+      </div> */}
       {/* partner brand section end */}
     </>
   );

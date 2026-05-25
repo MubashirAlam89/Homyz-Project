@@ -2,6 +2,7 @@ import "./service.css";
 import ServiceCard from "./serviceCard";
 import { servicesData } from "../../constants/servicesData";
 import { motion } from "framer-motion";
+
 import { animationVariants } from "../../constants/animationVariants";
 const ServicesComponent = () => {
   return (
@@ -24,16 +25,17 @@ const ServicesComponent = () => {
           </div>
           <div className="flex gap-12 text-white max-md:text-center">
             <div className="flex max-md:items-center  flex-col gap-4">
-              <h2 className="text-4xl title-font font-bold">19K+</h2>
-              <p className="text-lg">Premium houses</p>
+              <h2 className="text-4xl title-font font-bold"></h2>
+              <p className="text-lg"></p>
             </div>
             <div className="flex max-md:items-center flex-col gap-4">
-              <h2 className="text-4xl  title-font font-bold">5000+</h2>
-              <p className="text-lg">Premium houses</p>
+              <h2 className="text-4xl  title-font font-bold"></h2>
+              <p className="text-lg"></p>
             </div>
           </div>
         </motion.div>
       </div>
+
       <div
         style={{ maxWidth: 1200 }}
         className="mx-auto grid grid-cols-2 max-md:grid-rows-6 max-md:grid-cols-1 grid-rows-3 p-10 max-lg:px-5 gap-5"

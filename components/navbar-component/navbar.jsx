@@ -3,6 +3,8 @@ import "./navbar.css";
 import Button from "../buttons-component/solidbutton";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { animationVariants } from "../../constants/animationVariants";
 import { CartContext } from "../../context/cartContext";
 import {
   NumberInput,
@@ -139,7 +141,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                                     </h2>
                                   </Link>
                                   <h3>
-                                    PKR {formatCompactNumber(e.price)}/Month
+                                    KSH {formatCompactNumber(e.price)}/Month
                                   </h3>
                                   <p
                                     onClick={(event) => {
@@ -178,7 +180,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                             <div className="flex justify-between">
                               <h2>Total</h2>
                               <p>
-                                PKR {formatCompactNumber(e.quantity * e.price)}
+                                KSH {formatCompactNumber(e.quantity * e.price)}
                               </p>
                             </div>
                           </div>
@@ -192,7 +194,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                   <div className="flex justify-between items-center">
                     <h2>Subtotal</h2>
                     <p className="total text-red-500">
-                      PKR {formatCompactNumber(subTotal)}
+                      KSH {formatCompactNumber(subTotal)}
                     </p>
                   </div>
                   <Button
@@ -236,12 +238,15 @@ const NavBar = ({ navBar2, showCase1Page }) => {
           style={{ maxWidth: 1200 }}
           className="flex justify-between mx-auto items-center gap-4 py-7 max-md:py-5 px-10 max-sm:px-5 font-medium"
         >
+          {/* logo later */}
           <Link onClick={scrollToTop} to="/">
-            <img
-              src={navBar2 ? "/Homyz-logo2.png" : logo}
-              className="w-44 max-lg:w-36"
-              alt="Homyz-logo"
-            />
+            <motion.h1
+              variants={animationVariants.fadeLeft}
+              className="text-4xl color-white max-lg:mx-auto font-bold max-sm:text-2xl max-w-lg "
+            >
+              <span className=" text-red-500 title-font ">GIS </span>
+              Limited
+            </motion.h1>
           </Link>
           <ul
             className={
@@ -262,12 +267,21 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             <Link
               onClick={scrollToTop}
               className="hover:text-red-500 transition-all"
-              to="/Services"
+              to="/services"
             >
               Our Services
             </Link>
-            <div className="showcase-menu cursor-pointer hover:text-red-500 transition-all relative">
-              Show Cases
+
+            {/* <Link
+              onClick={scrollToTop}
+              className="hover:text-red-500 transition-all"
+              to="/showcases/showcase1"
+            >
+              PortFolio
+            </Link> */}
+
+            {/* <div className="showcase-menu cursor-pointer hover:text-red-500 transition-all relative">
+              PortFolio
               <div className="showcase-list hidden absolute cursor-default -left-4 ">
                 <ul
                   style={{ border: "1px solid #e9e9e9" }}
@@ -283,7 +297,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                       className="hover:text-red-500 transition-all"
                       to="/showcases/showcase1"
                     >
-                      Show Case 1
+                      Urban Planning Projects
                     </Link>
                   </li>
                   <li className="listItem flex items-center gap-2">
@@ -294,14 +308,14 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                     <Link
                       onClick={scrollToTop}
                       className="hover:text-red-500 transition-all"
-                      to="/showcases/showcase2"
+                      to="/showcases/showcase1"
                     >
-                      Show Case 2
+                      GIS Based Projects
                     </Link>
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             <Link
               onClick={scrollToTop}
               className="hover:text-red-500 transition-all"
@@ -309,7 +323,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             >
               About
             </Link>
-            <div
+            {/* <div
               className="relative cursor-pointer  transition-all"
               onClick={() => {
                 setModal(true);
@@ -328,7 +342,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                 ""
               )}
               <FaShoppingCart />
-            </div>
+            </div> */}
 
             <Link onClick={scrollToTop} to="/contact">
               <Button
@@ -340,30 +354,8 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             </Link>
           </ul>
           <ul
-            className={`${
-              navBar2 ? "text-black" : textColor
-            } text-xl hidden max-lg:flex justify-center items-center gap-8`}
+            className={`text-black text-xl hidden max-lg:flex justify-center items-center gap-8`}
           >
-            <div
-              className="relative"
-              onClick={() => {
-                setModal(true);
-              }}
-            >
-              {totalQty > 0 ? (
-                <p
-                  className={`absolute bg-red-500 pt-[1.5px] text-white rounded-full h-[18px] px-1   min-w-[18px] ${
-                    totalQty >= 100 ? "-right-[15px]" : "-right-[10px]"
-                  }  text-xs font-medium text-center -top-[10px]`}
-                >
-                  {totalQty}
-                </p>
-              ) : (
-                ""
-              )}
-              <FaShoppingCart />
-            </div>
-
             <FaBars
               onClick={() => {
                 setViewSideNav(!viewSideNav);
@@ -392,7 +384,6 @@ const NavBar = ({ navBar2, showCase1Page }) => {
         } bg-white  left-0 w-96 p-5 px-10 max-sm:px-5 max-sm:w-80 z-30 transition-all font-medium`}
       >
         <div id="header" className="flex justify-between items-center">
-          <img className="w-36" src="/Homyz-logo2.png" alt="Homyz-logo2" />
           <div
             onClick={() => {
               setViewSideNav(!viewSideNav);
@@ -433,76 +424,42 @@ const NavBar = ({ navBar2, showCase1Page }) => {
           >
             Our Services
           </Link>
-          <div className="relative">
-            <div
-              onClick={() => {
-                setShowcaseDropDown(!showcaseDropDown);
-              }}
-              className="flex justify-between hover:text-red-500 max-sm:hover:text-black transition-all items-center cursor-pointer"
-            >
-              <p className="transition-all">Show Cases</p>
-              <FaAngleDown
-                className={`${
-                  showcaseDropDown ? "-rotate-180" : "rotate-0"
-                } transition-all `}
-              />
-            </div>
-            <ul
-              className={`flex flex-col gap-2 mt-3 pl-5 transition-all duration-300 origin-top  `}
-            >
-              <Link
-                onClick={() => {
-                  hideNav();
-                  scrollToTop();
-                }}
-                className="hover:text-red-500 transition-all"
-                to={"/showcases/showcase1"}
-              >
-                Show Cases 1
-              </Link>
-              <Link
-                onClick={() => {
-                  hideNav();
-                  scrollToTop();
-                }}
-                to={"/showcases/showcase2"}
-                className="hover:text-red-500 transition-all"
-              >
-                Show Cases 2
-              </Link>
-            </ul>
-            <div
-              className={`${
-                showcaseDropDown ? "top-[114px]" : "top-[41px]"
-              } transition-all duration-200 absolute  w-full bg-white h-24`}
-            >
-              <Link
-                onClick={() => {
-                  hideNav();
-                  scrollToTop();
-                }}
-                to={"/about"}
-                className="hover:text-red-500 transition-all w-full block"
-              >
-                About
-              </Link>
-              <Link
-                onClick={() => {
-                  hideNav();
-                  scrollToTop();
-                }}
-                to={"/contact"}
-                className="hover:text-red-500 transition-all w-full block"
-              >
-                <Button
-                  content={"Contact Us"}
-                  fontSize={""}
-                  padding={"py-[6px] px-3"}
-                  furtherClasses={" mt-4"}
-                />
-              </Link>
-            </div>
-          </div>
+
+          {/* <Link
+            onClick={() => {
+              hideNav();
+              scrollToTop();
+            }}
+            to="/showcases/showcase1"
+            className="hover:text-red-500 transition-all"
+          >
+            PortFolio
+          </Link> */}
+          <Link
+            onClick={() => {
+              hideNav();
+              scrollToTop();
+            }}
+            to={"/about"}
+            className="hover:text-red-500 transition-all w-full block"
+          >
+            About
+          </Link>
+          <Link
+            onClick={() => {
+              hideNav();
+              scrollToTop();
+            }}
+            to={"/contact"}
+            className="hover:text-red-500 transition-all w-full block"
+          >
+            <Button
+              content={"Contact Us"}
+              fontSize={""}
+              padding={"py-[6px] px-3"}
+              furtherClasses={" mt-4"}
+            />
+          </Link>
         </ul>
       </nav>
     </>

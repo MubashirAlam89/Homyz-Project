@@ -128,33 +128,24 @@ const Footer = () => {
   // You can add more validations based on your requirements
 
   return (
-    <div className="bg-black">
+    <div className="bg-black ">
       <footer
         style={{ maxWidth: 1200 }}
-        className="mx-auto flex justify-between gap-20 max-lg:flex-col py-20 px-8 max-sm:px-5  "
+        className="mx-auto flex justify-between gap-10 max-lg:flex-col py-10 px-8 max-sm:px-5  "
       >
         <div className="flex flex-col items-start h-auto justify-between gap-16 w-2/4 max-lg:w-full pr-10 max-sm:pr-0">
           <div className="flex flex-col text-lg items-start  justify-between gap-10 ">
             <a href="/">
-              <img src="/Homyz-logo.png" className="w-36" alt="Homyz-logo" />
+              {/* <img src="/Homyz-logo.png" className="w-36" alt="Homyz-logo" /> */}
+              <strong style={{ color: "#FFFFFF" }}>GIS LIMITED</strong>
             </a>
+
             <p style={{ color: "#696969" }}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam,
-              pariatur. Fugit dignissimos aut tempora ullam similique minima
-              culpa quod fuga, doloribus expedita, cupiditate sint, nulla
-              distinctio soluta. Aut, sequi quia.
+              We solve our clients’ challenges by providing on-time and
+              on-budget GIS services and technical support. Our goal is to
+              ensure that every client is completely satisfied with the products
+              and services that we provide.
             </p>
-            <div className="flex text-xl justify-start items-center gap-10 text-red-500">
-              <Link target="_blank" to={"https://facebook.com"}>
-                <FaFacebookF />
-              </Link>
-              <Link target="_blank" to={"https://instagram.com"}>
-                <FaInstagram />
-              </Link>
-              <Link target="_blank" to={"https://twitter.com"}>
-                <FaTwitter />
-              </Link>
-            </div>
             <ul className="text-white text-lg flex justify-start items-center flex-wrap gap-x-8 gap-y-4">
               <Link
                 onClick={scrollToTop}
@@ -168,7 +159,7 @@ const Footer = () => {
                 className="hover:text-red-500 transition-all"
                 to="/services"
               >
-                Services
+                Our Services
               </Link>
               <Link
                 onClick={scrollToTop}
@@ -186,15 +177,14 @@ const Footer = () => {
               </Link>
             </ul>
           </div>
-          <p style={{ color: "#696969" }}>© Homyz. All Rights Reserved 2023.</p>
         </div>
 
         <div
           id="contact"
           className="w-2/4 max-lg:w-full flex flex-col h-auto justify-between items-start gap-10 "
         >
-          <h1 className="text-3xl text-white">Get in Touch</h1>
-          <div className="name w-full gap-8 text-white max-sm:flex-col max-sm:gap-10 mt-3 flex">
+          <h1 className="text-3xl text-white">Visit Us</h1>
+          {/* <div className="name w-full gap-8 text-white max-sm:flex-col max-sm:gap-10 mt-3 flex">
             <Input
               pl={3}
               fontSize={19}
@@ -287,8 +277,19 @@ const Footer = () => {
             fontSize={"20px"}
             borderRadius={"4px"}
           >
-            Submit
-          </Button>
+            Send
+          </Button> */}
+          <iframe
+            title="GIS Limited"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.768208605137!2d36.06591347362096!3d-0.2871648353474262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18298dd3e2d9db0b%3A0xdcdbf70e8d2dbf2b!2ssansora%20building!5e0!3m2!1sen!2ske!4v1714977711642!5m2!1sen!2ske"
+            style={{ border: 0, width: "100%", height: "300px" }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+
+          <p style={{ color: "#696969" }}>
+            © GIS Limited. All Rights Reserved 2025.
+          </p>
         </div>
       </footer>
     </div>

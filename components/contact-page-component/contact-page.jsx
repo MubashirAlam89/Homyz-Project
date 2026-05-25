@@ -5,6 +5,7 @@ import {
   FaMapMarkerAlt,
   FaMobileAlt,
   FaPhone,
+  FaWhatsapp,
 } from "react-icons/fa";
 import {
   Accordion,
@@ -64,28 +65,29 @@ const ContactPage = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
     const errors = validateForm(formData);
 
     if (errors === false) {
       setBtnLoader(true);
-      axios
-        .post("https://homyz-server.vercel.app/contact", formData)
-        .then((response) => {
-          showToast();
-          setFormData({
-            firstName: "",
-            lastName: "",
-            phoneNo: "",
-            email: "",
-            message: "",
-          });
-          setBtnLoader(false);
-        })
-        .catch((error) => {
-          setBtnLoader(false);
-          errorToast(error.message, "error");
-          console.error("Error submitting form:", error);
-        });
+    
+      // Create the mailto link
+      const mailtoLink = `mailto:info@gis.co.ke?subject=Contact Form Submission&body=First Name: ${formData.firstName}
+      %0D%0ALast Name: ${formData.lastName}%0D%0APhone: ${formData.phoneNo}
+      %0D%0AEmail: ${formData.email}%0D%0AMessage: ${formData.message}`;
+    
+      // Trigger the mailto action
+      window.location.href = mailtoLink;
+    
+      // Reset form data and loader state
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phoneNo: "",
+        email: "",
+        message: "",
+      });
+      setBtnLoader(false);
     }
   };
 
@@ -175,7 +177,7 @@ const ContactPage = () => {
                 </div>
                 <h2 className="title-font font-semibold ">Services</h2>
               </div>
-              <p>Neque porro quisquam est, qui dolorem ipsum.</p>
+              <p>Offers reliable services.</p>
             </motion.div>
             <motion.div
               variants={animationVariants.fadeUp}
@@ -187,7 +189,7 @@ const ContactPage = () => {
                 </div>
                 <h2 className="title-font font-semibold ">Pricing</h2>
               </div>
-              <p>Neque porro quisquam est, qui dolorem ipsum.</p>
+              <p>We have affordable pricing rates.</p>
             </motion.div>
             <motion.div
               variants={animationVariants.fadeUp}
@@ -199,7 +201,7 @@ const ContactPage = () => {
                 </div>
                 <h2 className="title-font font-semibold ">Support</h2>
               </div>
-              <p>Neque porro quisquam est, qui dolorem ipsum.</p>
+              <p> Wegive round the clock support.</p>
             </motion.div>
           </motion.div>
         </div>
@@ -333,33 +335,37 @@ const ContactPage = () => {
             <h1 className="font-semibold ">
               Contact our support{" "}
               <span className="font-semibold title-font  text-red-500">
-                team to grow your business
+                team to provide solutions
               </span>
             </h1>
           </div>
           <p className="text-xl">
-            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-            impedit quo minus id quod maxime placeat facere possimus, omnis
-            voluptas assumenda est, omnis dolor repellendus.
+            We solve our clients’ challenges by providing on-time and on-budget
+            GIS services and technical support. Our goal is to ensure that every
+            client is completely satisfied with the products and services that
+            we provide.
           </p>
           <div className="flex flex-col gap-3">
             <div className="flex  gap-3 text-xl items-center">
               <div>
                 <FaEnvelope className="text-red-500" />
               </div>
-              <p>Office # 420 DHA Phase 90, Karachi, PK</p>
+              <p>info@gis.co.ke</p>
             </div>
             <div className="flex  gap-3 text-xl items-center">
               <div>
                 <FaPhone className="rotate-90 text-red-500" />
               </div>
-              <p>+92 39283848238</p>
+              <p>+254 721224735</p>
             </div>
             <div className="flex  gap-3 text-xl items-center">
               <div>
                 <FaMapMarkerAlt className="text-red-500" />
               </div>
-              <p>information@office.com</p>
+              <p>
+                Office in Nakuru Town along Mudavadi Road, on the second floor
+                of Sansora building, room 14
+              </p>
             </div>
           </div>
         </motion.div>
@@ -386,12 +392,12 @@ const ContactPage = () => {
                 className="max-w-xl max-lg:max-w-lg max-sm:w-full text-center"
               >
                 <h1 className="text-[46px] max-lg:text-4xl max-sm:text-[34px] max-[500px]:text-3xl leading-tight font-semibold">
-                  Whatever you are, you
-                  <br /> will definitely get a place
+                  Our Mission
                 </h1>
                 <p className="text-xl mt-3">
-                  We provide equity and debt capital globally to back projects
-                  that make an impact.
+                  Here to provide dependable professional Planning, GIS and
+                  Development Consultancy services that meets our clients’
+                  desires and promotes sustainable development
                 </p>
               </motion.div>
             </div>
@@ -452,9 +458,10 @@ const ContactPage = () => {
               What we do
             </h2>
             <p className="text-xl">
-              Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-              urna in elit amet blandit enim lacinia. Tellus leo felis et vel
-              eget maecenas.
+              We solve our clients’ challenges by providing on-time and
+              on-budget GIS services and technical support. Our goal is to
+              ensure that every client is completely satisfied with the products
+              and services that we provide.
             </p>
             <Link to="/about" onClick={scrollToTop}>
               <button
@@ -488,7 +495,7 @@ const ContactPage = () => {
                 iconAlt={"reliability"}
                 title={"Reliability"}
                 desc={
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam distinctio, nemo libero deleniti quibusdam quia!"
+                  " At GIS Limited, we prioritize reliability in every aspect of our services, ensuring your projects succeed."
                 }
               />
               <WhatWeDoCard
@@ -496,7 +503,7 @@ const ContactPage = () => {
                 iconAlt={"communication"}
                 title={"communication"}
                 desc={
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam distinctio, nemo libero deleniti quibusdam quia!"
+                  "We believe in clear, open communication, fostering strong relationships and ensuring your project goals are met."
                 }
               />
             </div>
@@ -510,7 +517,7 @@ const ContactPage = () => {
                 iconAlt={"quality-first"}
                 title={"Quality First"}
                 desc={
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam distinctio, nemo libero deleniti quibusdam quia!"
+                  "Quality is not just our goal; it's our standard. We strive to exceed expectations with every GIS solution we deliver."
                 }
               />
               <div
@@ -551,16 +558,20 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      How will I know if a special request is confirmed?
+                      What specific GIS services does your company offer for
+                      urban planning?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  - Our company specializes in integrating GIS technology with
+                  urban planning processes, offering services that range from
+                  data analysis and visualization to scenario planning and
+                  zoning. We leverage GIS to unlock actionable insights about
+                  spaces, aiding in determining suitable areas for development,
+                  optimizing transportation networks, and assessing
+                  environmental impacts.
                 </AccordionPanel>
               </AccordionItem>
 
@@ -572,16 +583,21 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      Can I request early check-in/late check-out?
+                      Can you provide examples of past urban planning projects
+                      your company has worked on?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  Yes, we have successfully completed numerous urban planning
+                  projects, including land use planning and management, spatial
+                  planning, analysis & modeling, and resilience planning. For
+                  instance, we helped a city balance commercial and residential
+                  areas by analyzing and visualizing data to meet the needs of
+                  businesses and residents alike. We also assisted in conducting
+                  environmental impact assessments and managing green spaces to
+                  empower resilience within communities.
                 </AccordionPanel>
               </AccordionItem>
               <AccordionItem className="border-none box-shadow p-6">
@@ -592,16 +608,19 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      Where can I check my booking details and status?
+                      How does your company integrate GIS technology with urban
+                      planning processes?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  We seamlessly integrate GIS technology into our urban planning
+                  processes by combining geographical data with socioeconomic,
+                  demographic, and environmental information. This integration
+                  enables complex spatial analysis, helping us devise targeted
+                  solutions such as creating new walking routes and
+                  safety-oriented improvements to the space.
                 </AccordionPanel>
               </AccordionItem>
               <AccordionItem className="border-none box-shadow p-6">
@@ -612,16 +631,20 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      How will I know if a special request is confirmed?
+                      What kind of data analysis and visualization tools does
+                      your company use in urban planning projects?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  We utilize advanced GIS tools for data analysis and
+                  visualization, allowing us to perform complex calculations and
+                  modeling. These tools enable us to analyze the accessibility
+                  of healthcare facilities to underserved communities, assess
+                  the impact of new developments on property values, and manage
+                  and optimize various systems, including traffic management,
+                  energy distribution, and waste management.
                 </AccordionPanel>
               </AccordionItem>
             </div>
@@ -634,17 +657,18 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      Can I choose the type of bed I want, request a smoking or
-                      non-smoking room?
+                      How does your company ensure data privacy and security in
+                      urban planning projects?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  Ensuring data privacy and security is paramount in our urban
+                  planning projects. We implement robust data protection
+                  measures, including secure data storage and transmission
+                  protocols, to safeguard the confidentiality and integrity of
+                  our clients' data.
                 </AccordionPanel>
               </AccordionItem>
 
@@ -656,16 +680,19 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      When do I get a confirmation email?
+                      What is your company's approach to collaboration and
+                      communication during urban planning projects?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  We believe in fostering strong collaboration and communication
+                  with our clients throughout the urban planning process. We
+                  maintain regular communication channels to keep our clients
+                  informed about project progress and to gather their feedback
+                  and input, ensuring that the final outcome aligns with their
+                  vision and objectives.
                 </AccordionPanel>
               </AccordionItem>
               <AccordionItem className="border-none box-shadow p-6">
@@ -676,16 +703,19 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      How can I cancel my booking?
+                      How does your company handle changes or adjustments to
+                      urban planning projects after the initial scope has been
+                      defined?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  We are flexible and adaptable, capable of handling changes or
+                  adjustments to urban planning projects as they arise. We work
+                  closely with our clients to understand their evolving needs
+                  and adjust our approach accordingly, ensuring that the final
+                  project meets the highest standards of quality and relevance.
                 </AccordionPanel>
               </AccordionItem>
               <AccordionItem className="border-none box-shadow p-6">
@@ -696,22 +726,24 @@ const ContactPage = () => {
                     _expanded={{ color: "#ef4444" }}
                   >
                     <Box as="span" flex="1" textAlign="left">
-                      If I have booked accommodation, how can I check my
-                      cancellation policy?
+                      What kind of support and training does your company offer
+                      to clients after completing an urban planning project?
                     </Box>
                     <AccordionIcon />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                  Many people has the notion that enlightenment is one state.
-                  Many also believe that when it is attained, a person is
-                  forever in that state.For your necessary discernment. Thank
-                  you for reading.
+                  We provide comprehensive support and training to our clients
+                  post-project completion. This includes technical support for
+                  any queries or issues that may arise, as well as training
+                  sessions to help clients maximize the value of the GIS
+                  solutions implemented in their urban planning projects.
                 </AccordionPanel>
               </AccordionItem>
             </div>
           </Accordion>
         </motion.div>
+       
       </div>
       {/* what we do section end */}
     </div>

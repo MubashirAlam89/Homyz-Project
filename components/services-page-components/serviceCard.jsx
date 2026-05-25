@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { animationVariants } from "../../constants/animationVariants";
 import { scrollToTop } from "../../constants/scrollToTop";
@@ -39,6 +39,7 @@ const ServiceCard = ({ id, title, imgSrc, iconSrc, brief }) => {
           </div>
         </Link>
       </div>
+     
     </motion.div>
   );
 };

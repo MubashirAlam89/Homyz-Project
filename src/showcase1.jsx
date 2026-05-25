@@ -3,7 +3,7 @@ import Section from "../components/showcase1-components/section";
 import { showCase } from "../constants/showcase";
 const showcase1 = () => {
   useEffect(() => {
-    document.title = "Showcase 1 - Homyz";
+    document.title = " Urban Planning Projects -GIS LIMITED";
   }, []);
   return (
     <div className="overflow-hidden">
